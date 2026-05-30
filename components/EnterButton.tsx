@@ -10,11 +10,64 @@ export default function EnterButton({ onClick }: EnterButtonProps) {
   return (
     <motion.button
       onClick={onClick}
-      whileHover={{ scale: 1.07 }}
+      whileHover={{
+        scale: 1.06,
+        boxShadow: "0 0 40px rgba(255,140,190,0.35)",
+      }}
       whileTap={{ scale: 0.95 }}
-      className="rounded-full border border-white/20 bg-white/5 px-10 py-4 text-sm uppercase tracking-[0.3em] text-white/80 backdrop-blur-xl transition hover:border-red-400/50 hover:bg-red-500/10 hover:text-white"
+      animate={{
+        boxShadow: [
+          "0 0 0px rgba(255,140,190,0)",
+          "0 0 25px rgba(255,140,190,0.25)",
+          "0 0 0px rgba(255,140,190,0)",
+        ],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="
+        relative
+        overflow-hidden
+        rounded-full
+        border
+        border-white/15
+        bg-white/[0.04]
+        px-12
+        py-4
+        text-sm
+        uppercase
+        tracking-[0.4em]
+        text-white/85
+        backdrop-blur-xl
+      "
     >
-      Begin
+      <span className="relative z-10 flex items-center gap-3">
+        ✦
+        <span>Begin</span>
+        ✦
+      </span>
+
+      <motion.div
+        animate={{
+          x: ["-120%", "120%"],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="
+          absolute
+          inset-y-0
+          w-20
+          bg-gradient-to-r
+          from-transparent
+          via-white/15
+          to-transparent
+        "
+      />
     </motion.button>
   );
 }

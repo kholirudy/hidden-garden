@@ -1,5 +1,6 @@
 "use client";
 
+import Atmosphere from "../components/Atmosphere";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -16,9 +17,9 @@ export default function Home() {
   >("home");
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      <FloatingElements />
-
+   <main className="relative min-h-screen overflow-hidden bg-black text-white">
+  <FloatingElements />
+  <Atmosphere />
       <AnimatePresence mode="wait">
         {scene === "home" && (
           <motion.div

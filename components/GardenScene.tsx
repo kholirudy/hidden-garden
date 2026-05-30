@@ -83,8 +83,16 @@ export default function GardenScene({ onComplete }: GardenSceneProps) {
               ease: "easeOut",
             }}
           >
-            <Image
-              src="/flower.png"
+           <Image
+  src={
+    [
+      "/pinkblossom.png",
+      "/smalldaisy.png",
+      "/whiteblossom.png",
+      "/tulip.png",
+      "/rose.png",
+    ][i % 5]
+  }
               alt=""
               width={130}
               height={130}
